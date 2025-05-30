@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LanguageSchool.Model;
+using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.Controllers
 {
@@ -19,7 +20,7 @@ namespace LanguageSchool.Controllers
 
         public List<Schedule> GetAllSchedules()
         {
-            return _context.Schedules.Include("Teacher").ToList();
+            return _context.Schedules.Include("Teachers").ToList();
         }
 
         public void UpdateSchedule(Schedule schedule)

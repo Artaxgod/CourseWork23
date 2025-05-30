@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Model;
 using LanguageSchool.View;
+using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool
 {
@@ -27,17 +28,21 @@ namespace LanguageSchool
         public MainWindow()
         {
             InitializeComponent();
-            _user = App.Current.Properties.Contains("CurrentUser")
-            ? App.Current.Properties["CurrentUser"] as User
-            : null;
-
-            if (_user == null)
+            //_user = App.Current.Properties.Contains("CurrentUser")
+            //? App.Current.Properties["CurrentUser"] as User
+            //: null;
+            _user = new User
             {
-                MessageBox.Show("Ошибка авторизации. Пожалуйста, войдите снова.");
-                new LoginWindow().Show();
-                Close();
-                return;
-            }
+                FirstName = "Отладка",
+                RoleID = 1 // Админ
+            };
+            //if (_user == null)
+            //{
+            //    MessageBox.Show("Ошибка авторизации. Пожалуйста, войдите снова.");
+            //    new LoginWindow().Show();
+            //    Close();
+            //    return;
+            //}
 
             WelcomeText.Text = $"Добро пожаловать, {_user.FirstName} ({GetRoleName(_user.RoleID)})";
             ApplyRolePermissions(_user.RoleID);

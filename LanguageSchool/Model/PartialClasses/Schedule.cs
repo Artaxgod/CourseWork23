@@ -8,24 +8,16 @@ using System.Threading.Tasks;
 
 namespace LanguageSchool.Model
 {
-    public class Schedule
+    public partial class Schedules
     {
-        [Key]
-        public int ID { get; set; }
-
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-
-        [ForeignKey("Teacher")]
-        public int TeacherID { get; set; }
-
-        public string Subject { get; set; }
-        public virtual Teacher Teacher { get; set; }
-
-        public Schedule()
+        /// <summary>
+        /// Свойство FormattedDateTime возвращает отформатированную строку даты и времени занятия.
+        /// Формат: "дата (в формате короткой даты) время (в формате чч:мм)".
+        /// Например: "15.10.2023 14:30".
+        /// </summary>
+        public string FormattedDateTime
         {
-            Subject = string.Empty;
-            Teacher = new Teacher();
+            get => $"{LessonDate.ToShortDateString()} {LessonTime:hh\\:mm}";
         }
     }
 }

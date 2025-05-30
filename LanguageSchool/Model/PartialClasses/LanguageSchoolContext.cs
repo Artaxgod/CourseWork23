@@ -9,20 +9,19 @@ using LanguageSchool.Model;
 
 namespace LanguageSchool.Model
 {
-    public class LanguageSchoolContext : DbContext
+    public partial class LanguageSchoolContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Client> Clients { get; set; }
-        public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<Schedule> Schedules { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<Homework> Homeworks { get; set; }
-        public DbSet<Feedback> Feedbacks { get; set; }
-        public DbSet<Service> Services { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public LanguageSchoolContext() : base("name=LanguageSchoolDBEntities")
-        {
-        }
+        public LanguageSchoolContext() : base("name=LanguageSchoolDBEntities") { }
+
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<Homework> Homeworks { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
     }
 }

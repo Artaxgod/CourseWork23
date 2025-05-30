@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using LanguageSchool.Model;
 
+
 namespace LanguageSchool.Controllers
 {
     public class ClientsController
     {
         private readonly LanguageSchoolContext _context = new LanguageSchoolContext();
 
-        public void AddClient(User user, string additionalInfo)
+        public void AddClient(Users user, string additionalInfo)
         {
             _context.Users.Add(user);
             _context.SaveChanges();

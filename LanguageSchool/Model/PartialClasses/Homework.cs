@@ -8,25 +8,15 @@ using System.Threading.Tasks;
 
 namespace LanguageSchool.Model
 {
-    public class Homework
+    public partial class Homeworks
     {
-        [Key]
-        public int ID { get; set; }
-
-        [ForeignKey("Group")]
-        public int GroupID { get; set; }
-
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime DueDate { get; set; }
-
-        public virtual Group Group { get; set; }
-
-        public Homework()
+        /// <summary>
+        /// Свойство IsOverdue определяет, просрочено ли домашнее задание.
+        /// Возвращает true, если текущая дата превышает дату дедлайна (Deadline), иначе false.
+        /// </summary>
+        public bool IsOverdue
         {
-            Title = string.Empty;
-            Description = string.Empty;
-            Group = new Group();
+            get => DateTime.Now > Deadline;
         }
     }
 }

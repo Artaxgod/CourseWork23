@@ -5,7 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using LanguageSchool.Model;
 using LanguageSchool.View;
+using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool
 {
@@ -18,16 +20,16 @@ namespace LanguageSchool
         {
             base.OnStartup(e);
 
-            if (!Current.Properties.Contains("CurrentUser"))
+            // временная авторизация отладки
+            Current.Properties["CurrentUser"] = new User
             {
-                LoginWindow login = new LoginWindow();
-                login.Show();
-            }
-            else
-            {
-                MainWindow main = new MainWindow();
-                main.Show();
-            }
+                FirstName = "Отладка",
+                RoleID = 1
+            };
+
+            var main = new MainWindow();
+            this.MainWindow = main;
+            main.Show();
         }
     }
 }
