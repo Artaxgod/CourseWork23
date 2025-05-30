@@ -1,0 +1,24 @@
+﻿<Page x:Class="LanguageSchool.View.PaymentsListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LanguageSchool.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PaymentsListPage">
+
+    <Grid Background="White" Margin="20">
+        <StackPanel>
+            <TextBlock Text="История оплат" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <DataGrid x:Name="PaymentsDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Клиент" Binding="{Binding Client.User.FirstName}" Width="*"/>
+                    <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Title}" Width="*"/>
+                    <DataGridTextColumn Header="Сумма" Binding="{Binding Amount}" Width="*"/>
+                    <DataGridTextColumn Header="Дата" Binding="{Binding DatePaid}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

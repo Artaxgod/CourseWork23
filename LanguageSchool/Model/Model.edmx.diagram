@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c7965d83e6f42f49fbc351d3d19f39c" Name="Diagram1">
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Attendances" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Clients" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Contracts" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Feedbacks" Width="1.5" PointX="3.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Groups" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.HomeworkFiles" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Homeworks" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Languages" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Messages" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Roles" Width="1.5" PointX="1.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Schedules" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Services" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Teachers" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LanguageSchoolDBModel.Users" Width="1.5" PointX="1.5" PointY="13.625" IsExpanded="true" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Attendances_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Attendances_Schedules" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Clients_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Contracts_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Messages_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Contracts_Services" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Feedbacks_User" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Groups_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_HomeworkFiles_Homeworks" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Homeworks_Schedules" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Services_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Messages_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Schedules_Teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.FK_Teachers_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.GroupClients" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.GroupHomeworks" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.GroupSchedules" ManuallyRouted="false" />
+        <AssociationConnector Association="LanguageSchoolDBModel.GroupTeachers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
