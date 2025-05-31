@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -38,7 +37,7 @@ namespace LanguageSchool.View
                 return;
             }
 
-            User user = new User
+            Model.Users user = new Model.Users
             {
                 FirstName = FirstNameBox.Text,
                 LastName = LastNameBox.Text,

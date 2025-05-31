@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -24,9 +23,9 @@ namespace LanguageSchool.View
     public partial class EditTeacherPage : Page
     {
         private readonly TeachersController _controller = new TeachersController();
-        private readonly Teacher _teacher;
+        private readonly Teachers _teacher;
 
-        public EditTeacherPage(Teacher teacher)
+        public EditTeacherPage(Teachers teacher)
         {
             InitializeComponent();
             _teacher = teacher;
@@ -35,21 +34,21 @@ namespace LanguageSchool.View
 
         private void LoadTeacherData()
         {
-            FirstNameBox.Text = _teacher.User.FirstName;
-            LastNameBox.Text = _teacher.User.LastName;
-            EmailBox.Text = _teacher.User.Email;
-            PhoneBox.Text = _teacher.User.Phone;
-            PasswordBox.Password = _teacher.User.Password;
+            FirstNameBox.Text = _teacher.Users.FirstName;
+            LastNameBox.Text = _teacher.Users.LastName;
+            EmailBox.Text = _teacher.Users.Email;
+            PhoneBox.Text = _teacher.Users.Phone;
+            PasswordBox.Password = _teacher.Users.Password;
             SpecializationBox.Text = _teacher.Specialization;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _teacher.User.FirstName = FirstNameBox.Text;
-            _teacher.User.LastName = LastNameBox.Text;
-            _teacher.User.Email = EmailBox.Text;
-            _teacher.User.Phone = PhoneBox.Text;
-            _teacher.User.Password = PasswordBox.Password;
+            _teacher.Users.FirstName = FirstNameBox.Text;
+            _teacher.Users.LastName = LastNameBox.Text;
+            _teacher.Users.Email = EmailBox.Text;
+            _teacher.Users.Phone = PhoneBox.Text;
+            _teacher.Users.Password = PasswordBox.Password;
             _teacher.Specialization = SpecializationBox.Text;
 
             try

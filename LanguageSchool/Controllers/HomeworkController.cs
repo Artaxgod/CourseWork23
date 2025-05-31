@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.Controllers
 {
@@ -12,18 +11,18 @@ namespace LanguageSchool.Controllers
     {
         private readonly LanguageSchoolContext _context = new LanguageSchoolContext();
 
-        public void AddHomework(Homework hw)
+        public void AddHomework(Homeworks hw)
         {
             _context.Homeworks.Add(hw);
             _context.SaveChanges();
         }
 
-        public List<Homework> GetAllHomework()
+        public List<Homeworks> GetAllHomework()
         {
-            return _context.Homeworks.Include("Group").ToList();
+            return _context.Homeworks.Include("Groups").ToList();
         }
 
-        public void UpdateHomework(Homework hw)
+        public void UpdateHomework(Homeworks hw)
         {
             _context.Entry(hw).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();

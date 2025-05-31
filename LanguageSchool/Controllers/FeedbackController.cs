@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.Controllers
 {
@@ -12,20 +12,29 @@ namespace LanguageSchool.Controllers
     {
         private readonly LanguageSchoolContext _context = new LanguageSchoolContext();
 
-        public void AddFeedback(Feedback feedback)
+        /// <summary>
+        /// Получает все отзывы, включая информацию о пользователе.
+        /// </summary>
+        public List<Feedbacks> GetAllFeedbacks()
+        {
+            return _context.Feedbacks.Include("Users").ToList();
+        }
+
+        /// <summary>
+        /// Добавляет новый отзыв.
+        /// </summary>
+        public void AddFeedback(Feedbacks feedback)
         {
             _context.Feedbacks.Add(feedback);
             _context.SaveChanges();
         }
 
-        public List<Feedback> GetAllFeedback()
+        /// <summary>
+        /// Обновляет существующий отзыв (например, отмечает как прочитанный).
+        /// </summary>
+        public void UpdateFeedback(Feedbacks feedback)
         {
-            return _context.Feedbacks.Include("Client").ToList();
-        }
-
-        public void UpdateFeedback(Feedback feedback)
-        {
-            _context.Entry(feedback).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(feedback).State = EntityState.Modified;
             _context.SaveChanges();
         }
     }

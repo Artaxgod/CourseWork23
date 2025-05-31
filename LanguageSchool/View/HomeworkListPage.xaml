@@ -15,7 +15,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="*"/>
                     <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="2*"/>
-                    <DataGridTextColumn Header="Группа" Binding="{Binding Group.Name}" Width="*"/>
+                    <DataGridTextColumn Header="Группа" Binding="{Binding GroupName}" Width="*"/>
                     <DataGridTextColumn Header="Срок сдачи" Binding="{Binding DueDate}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>

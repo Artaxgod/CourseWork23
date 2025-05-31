@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -24,18 +23,18 @@ namespace LanguageSchool.View
     public partial class EditGroupPage : Page
     {
         private readonly GroupsController _controller = new GroupsController();
-        private readonly Group _group;
+        private readonly Model.Groups _group;
 
-        public EditGroupPage(Group group)
+        public EditGroupPage(Model.Groups group)
         {
             InitializeComponent();
             _group = group;
-            GroupNameBox.Text = group.Name;
+            GroupNameBox.Text = group.GroupName;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _group.Name = GroupNameBox.Text;
+            _group.GroupName = GroupNameBox.Text;
             try
             {
                 _controller.UpdateGroup(_group);

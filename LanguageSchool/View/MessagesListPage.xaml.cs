@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -33,7 +32,7 @@ namespace LanguageSchool.View
 
         private void LoadMessages()
         {
-            List<Message> messages = _controller.GetAllMessages();
+            List<Messages> messages = _controller.GetAllMessages();
             MessagesDataGrid.ItemsSource = messages;
         }
     }

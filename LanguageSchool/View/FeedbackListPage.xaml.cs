@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -33,7 +32,7 @@ namespace LanguageSchool.View
 
         private void LoadFeedback()
         {
-            List<Feedback> feedbacks = _controller.GetAllFeedback();
+            List<Feedbacks> feedbacks = _controller.GetAllFeedbacks();
             FeedbackDataGrid.ItemsSource = feedbacks;
         }
     }

@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -38,11 +37,11 @@ namespace LanguageSchool.View
                 return;
             }
 
-            Feedback feedback = new Feedback
+            Feedbacks feedback = new Feedbacks
             {
-                ClientID = int.Parse(ClientIdBox.Text),
-                Text = TextBoxFeedback.Text,
-                DateSubmitted = DateTime.Now
+                UserID = int.Parse(ClientIdBox.Text),
+                Content = TextBoxFeedback.Text,
+                FeedbackDate = DateTime.Now
             };
 
             try

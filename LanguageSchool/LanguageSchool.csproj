@@ -71,13 +71,18 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeworkController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
-    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\SchedulesController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Model\Core.cs" />
+    <Compile Include="Model\PartialClasses\Clients.cs" />
+    <Compile Include="Model\PartialClasses\Feedbacks.cs" />
+    <Compile Include="Model\PartialClasses\Groups.cs" />
     <Compile Include="Model\PartialClasses\Homework.cs" />
-    <Compile Include="Model\PartialClasses\Schedule.cs" />
+    <Compile Include="Model\PartialClasses\Messages.cs" />
+    <Compile Include="Model\PartialClasses\Schedules.cs" />
+    <Compile Include="Model\PartialClasses\Services.cs" />
+    <Compile Include="Model\PartialClasses\Teachers.cs" />
     <Compile Include="View\AddFeedbackPage.xaml.cs">
       <DependentUpon>AddFeedbackPage.xaml</DependentUpon>
     </Compile>
@@ -86,9 +91,6 @@
     </Compile>
     <Compile Include="View\AddHomeworkPage.xaml.cs">
       <DependentUpon>AddHomeworkPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddPaymentPage.xaml.cs">
-      <DependentUpon>AddPaymentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddSchedulePage.xaml.cs">
       <DependentUpon>AddSchedulePage.xaml</DependentUpon>
@@ -114,9 +116,6 @@
     <Compile Include="View\EditHomeworkPage.xaml.cs">
       <DependentUpon>EditHomeworkPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditPaymentPage.xaml.cs">
-      <DependentUpon>EditPaymentPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\EditSchedulePage.xaml.cs">
       <DependentUpon>EditSchedulePage.xaml</DependentUpon>
     </Compile>
@@ -140,9 +139,6 @@
     </Compile>
     <Compile Include="View\MessagesListPage.xaml.cs">
       <DependentUpon>MessagesListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\PaymentsListPage.xaml.cs">
-      <DependentUpon>PaymentsListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SchedulesListPage.xaml.cs">
       <DependentUpon>SchedulesListPage.xaml</DependentUpon>
@@ -181,10 +177,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddPaymentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\AddSchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -217,10 +209,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditPaymentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\EditSchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,10 +238,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MessagesListPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PaymentsListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -318,7 +302,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClasses\LanguageSchoolContext.cs" />
-    <Compile Include="Model\PartialClasses\User.cs" />
+    <Compile Include="Model\PartialClasses\Users.cs" />
     <Compile Include="Model\Roles.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

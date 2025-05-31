@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 namespace LanguageSchool.View
 {
     /// <summary>
@@ -32,7 +31,7 @@ namespace LanguageSchool.View
 
         private void LoadClients()
         {
-            List<Client> client = _controller.GetAllClients();
+            List<Model.Clients> client = _controller.GetAllClients();
             ClientsDataGrid.ItemsSource = client;
         }
     }

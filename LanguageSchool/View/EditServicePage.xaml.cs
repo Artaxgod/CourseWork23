@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -24,13 +23,13 @@ namespace LanguageSchool.View
     public partial class EditServicePage : Page
     {
         private readonly ServicesController _controller = new ServicesController();
-        private readonly Service _service;
+        private readonly Services _service;
 
-        public EditServicePage(Service service)
+        public EditServicePage(Services service)
         {
             InitializeComponent();
             _service = service;
-            TitleBox.Text = service.Title;
+            TitleBox.Text = service.ServiceName;
             DescriptionBox.Text = service.Description;
             PriceBox.Text = service.Price.ToString();
         }
@@ -44,7 +43,7 @@ namespace LanguageSchool.View
                 return;
             }
 
-            _service.Title = TitleBox.Text;
+            _service.ServiceName = TitleBox.Text;
             _service.Description = DescriptionBox.Text;
             _service.Price = price;
 

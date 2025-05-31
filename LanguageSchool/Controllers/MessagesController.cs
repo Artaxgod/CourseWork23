@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.Controllers
 {
@@ -12,15 +12,35 @@ namespace LanguageSchool.Controllers
     {
         private readonly LanguageSchoolContext _context = new LanguageSchoolContext();
 
-        public void SendMessage(Message message)
+        /// <summary>
+        /// Получает все сообщения с включением преподавателя и клиента.
+        /// </summary>
+        public List<Messages> GetAllMessages()
+        {
+            return _context.Messages
+                .Include("Teachers")
+                .Include("Clients")
+                .ToList();
+        }
+
+        /// <summary>
+        /// Добавляет новое сообщение.
+        /// </summary>
+        /// <param name="message">Сообщение для добавления</param>
+        public void SendMessage(Messages message)
         {
             _context.Messages.Add(message);
             _context.SaveChanges();
         }
 
-        public List<Message> GetAllMessages()
+        /// <summary>
+        /// Обновляет существующее сообщение (например, отметку о прочтении).
+        /// </summary>
+        /// <param name="message">Сообщение для обновления</param>
+        public void UpdateMessage(Messages message)
         {
-            return _context.Messages.Include("Sender").Include("Receiver").ToList();
+            _context.Entry(message).State = EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }

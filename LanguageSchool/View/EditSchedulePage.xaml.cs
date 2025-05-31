@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -24,9 +23,9 @@ namespace LanguageSchool.View
     public partial class EditSchedulePage : Page
     {
         private readonly SchedulesController _controller = new SchedulesController();
-        private readonly Schedule _schedule;
+        private readonly Schedules _schedule;
 
-        public EditSchedulePage(Schedule schedule)
+        public EditSchedulePage(Schedules schedule)
         {
             InitializeComponent();
             _schedule = schedule;
@@ -35,16 +34,18 @@ namespace LanguageSchool.View
 
         private void LoadScheduleData()
         {
-            SubjectBox.Text = _schedule.Subject;
-            StartDatePicker.SelectedDate = _schedule.StartTime;
-            EndDatePicker.SelectedDate = _schedule.EndTime;
+            SubjectBox.Text = _schedule.Topic;
+            StartDatePicker.SelectedDate = _schedule.LessonDate;
+            EndDatePicker.SelectedDate = _schedule.LessonDate.Add(_schedule.LessonTime); // если ты хочешь имитировать EndTime
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _schedule.Subject = SubjectBox.Text;
-            _schedule.StartTime = StartDatePicker.SelectedDate ?? DateTime.Now;
-            _schedule.EndTime = EndDatePicker.SelectedDate ?? DateTime.Now.AddHours(1);
+            _schedule.Topic = SubjectBox.Text;
+            _schedule.LessonDate = StartDatePicker.SelectedDate ?? DateTime.Now;
+
+            var endTime = EndDatePicker.SelectedDate ?? DateTime.Now.AddHours(1);
+            _schedule.LessonTime = endTime.TimeOfDay; 
 
             try
             {

@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -33,7 +32,7 @@ namespace LanguageSchool.View
 
         private void LoadTeachers()
         {
-            List<Teacher> teachers = _controller.GetAllTeachers();
+            List<Teachers> teachers = _controller.GetAllTeachers();
             TeachersDataGrid.ItemsSource = teachers;
         }
     }

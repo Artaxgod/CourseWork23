@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -38,12 +37,10 @@ namespace LanguageSchool.View
                 return;
             }
 
-            Homework hw = new Homework
+            Homeworks hw = new Homeworks
             {
-                Title = TitleBox.Text,
                 Description = DescriptionBox.Text,
-                GroupID = int.Parse(GroupIdBox.Text),
-                DueDate = DueDatePicker.SelectedDate ?? DateTime.Now.AddDays(7)
+                Deadline = DueDatePicker.SelectedDate ?? DateTime.Now.AddDays(7)
             };
 
             try

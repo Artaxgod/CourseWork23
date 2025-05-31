@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.Controllers
 {
@@ -12,14 +11,14 @@ namespace LanguageSchool.Controllers
     {
         private readonly LanguageSchoolContext _context = new LanguageSchoolContext();
 
-        public void AddTeacher(User user, string specialization)
+        public void AddTeacher(Model.Users user, string specialization)
         {
             _context.Users.Add(user);
             _context.SaveChanges();
 
-            Teacher teacher = new Teacher
+            Teachers teacher = new Teachers
             {
-                UserID = user.ID,
+                UserID = user.UserID,
                 Specialization = specialization
             };
 
@@ -27,15 +26,15 @@ namespace LanguageSchool.Controllers
             _context.SaveChanges();
         }
 
-        public List<Teacher> GetAllTeachers()
+        public List<Teachers> GetAllTeachers()
         {
-            return _context.Teachers.Include("User").ToList();
+            return _context.Teachers.Include("Users").ToList();
         }
 
-        public void UpdateTeacher(Teacher teacher)
+        public void UpdateTeacher(Teachers teacher)
         {
             _context.Entry(teacher).State = System.Data.Entity.EntityState.Modified;
-            _context.Entry(teacher.User).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(teacher.Users).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
     }

@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -24,19 +23,19 @@ namespace LanguageSchool.View
     public partial class EditFeedbackPage : Page
     {
         private readonly FeedbackController _controller = new FeedbackController();
-        private readonly Feedback _feedback;
+        private readonly Feedbacks _feedback;
 
-        public EditFeedbackPage(Feedback feedback)
+        public EditFeedbackPage(Feedbacks feedback)
         {
             InitializeComponent();
             _feedback = feedback;
-            TextBoxFeedback.Text = feedback.Text;
+            TextBoxFeedback.Text = feedback.Content;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _feedback.Text = TextBoxFeedback.Text;
-            _feedback.DateSubmitted = DateTime.Now;
+            _feedback.Content = TextBoxFeedback.Text;
+            _feedback.FeedbackDate = DateTime.Now;
 
             try
             {

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.Controllers
 {
@@ -12,18 +11,18 @@ namespace LanguageSchool.Controllers
     {
         private readonly LanguageSchoolContext _context = new LanguageSchoolContext();
 
-        public void AddService(Service service)
+        public void AddService(Services service)
         {
             _context.Services.Add(service);
             _context.SaveChanges();
         }
 
-        public List<Service> GetAllServices()
+        public List<Services> GetAllServices()
         {
             return _context.Services.ToList();
         }
 
-        public void UpdateService(Service service)
+        public void UpdateService(Services service)
         {
             _context.Entry(service).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();

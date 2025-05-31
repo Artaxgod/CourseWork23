@@ -14,7 +14,7 @@
             <DataGrid x:Name="SchedulesDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Предмет" Binding="{Binding Subject}" Width="*"/>
-                    <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher.User.FirstName}" Width="*"/>
+                    <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teachers.Users.FirstName}" Width="*"/>
                     <DataGridTextColumn Header="Начало" Binding="{Binding StartTime}" Width="*"/>
                     <DataGridTextColumn Header="Окончание" Binding="{Binding EndTime}" Width="*"/>
                 </DataGrid.Columns>

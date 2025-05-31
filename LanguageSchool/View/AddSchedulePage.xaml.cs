@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -38,12 +37,28 @@ namespace LanguageSchool.View
                 return;
             }
 
-            Schedule schedule = new Schedule
+            if (!int.TryParse(TeacherIdBox.Text, out int teacherId))
             {
-                Subject = SubjectBox.Text,
-                TeacherID = int.Parse(TeacherIdBox.Text),
-                StartTime = StartDatePicker.SelectedDate ?? DateTime.Now,
-                EndTime = EndDatePicker.SelectedDate ?? DateTime.Now.AddHours(1)
+                MessageBox.Show("Некорректный ID преподавателя.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (StartDatePicker.SelectedDate == null || EndDatePicker.SelectedDate == null)
+            {
+                MessageBox.Show("Укажите дату и время.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var start = StartDatePicker.SelectedDate.Value;
+            var end = EndDatePicker.SelectedDate.Value;
+            var time = end - start;
+
+            Schedules schedule = new Schedules
+            {
+                Topic = SubjectBox.Text,
+                TeacherID = teacherId,
+                LessonDate = start.Date,
+                LessonTime = time
             };
 
             try

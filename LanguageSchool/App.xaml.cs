@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using LanguageSchool.Model;
 using LanguageSchool.View;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool
 {
@@ -21,7 +20,7 @@ namespace LanguageSchool
             base.OnStartup(e);
 
             // временная авторизация отладки
-            Current.Properties["CurrentUser"] = new User
+            Current.Properties["CurrentUser"] = new Model.Users
             {
                 FirstName = "Отладка",
                 RoleID = 1

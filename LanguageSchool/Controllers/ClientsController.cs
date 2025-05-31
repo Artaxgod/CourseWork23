@@ -17,9 +17,9 @@ namespace LanguageSchool.Controllers
             _context.Users.Add(user);
             _context.SaveChanges();
 
-            Client client = new Client
+            Clients client = new Clients
             {
-                UserID = user.ID,
+                UserID = user.UserID,
                 AdditionalInfo = additionalInfo
             };
 
@@ -27,16 +27,17 @@ namespace LanguageSchool.Controllers
             _context.SaveChanges();
         }
 
-        public List<Client> GetAllClients()
+        public List<Clients> GetAllClients()
         {
-            return _context.Clients.Include("User").ToList();
+            return _context.Clients.Include("Users").ToList();
         }
 
-        public void UpdateClient(Client client)
+        public void UpdateClient(Clients client)
         {
             _context.Entry(client).State = System.Data.Entity.EntityState.Modified;
-            _context.Entry(client.User).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(client.Users).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
     }
+
 }

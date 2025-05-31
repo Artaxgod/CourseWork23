@@ -23,7 +23,6 @@
             <Button Content="Дом. задания" x:Name="HomeworkBtn" Click="Homework_Click" Margin="5"/>
             <Button Content="Сообщения" x:Name="MessagesBtn" Click="Messages_Click" Margin="5"/>
             <Button Content="Отзывы" x:Name="FeedbackBtn" Click="Feedback_Click" Margin="5"/>
-            <Button Content="Оплаты" x:Name="PaymentsBtn" Click="Payments_Click" Margin="5"/>
             <Separator Margin="10"/>
             <Button Content="Выход" Click="Logout_Click" Margin="5"/>
         </StackPanel>

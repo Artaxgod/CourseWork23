@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -33,7 +32,7 @@ namespace LanguageSchool.View
 
         private void LoadServices()
         {
-            List<Service> services = _controller.GetAllServices();
+            List<Services> services = _controller.GetAllServices();
             ServicesDataGrid.ItemsSource = services;
         }
     }

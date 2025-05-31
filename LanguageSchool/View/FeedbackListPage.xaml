@@ -13,9 +13,9 @@
             <TextBlock Text="Список отзывов" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
             <DataGrid x:Name="FeedbackDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Клиент" Binding="{Binding Client.User.FirstName}" Width="*"/>
-                    <DataGridTextColumn Header="Отзыв" Binding="{Binding Text}" Width="2*"/>
-                    <DataGridTextColumn Header="Дата" Binding="{Binding DateSubmitted}" Width="*"/>
+                    <DataGridTextColumn Header="Клиент" Binding="{Binding AuthorName}" Width="*" />
+                    <DataGridTextColumn Header="Отзыв" Binding="{Binding Content}" Width="2*" />
+                    <DataGridTextColumn Header="Дата" Binding="{Binding FeedbackDate}" Width="*" />
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

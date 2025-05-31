@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -45,12 +44,12 @@ namespace LanguageSchool.View
                 return;
             }
 
-            Message message = new Message
+            Messages message = new Messages
             {
-                SenderID = senderId,
-                ReceiverID = receiverId,
-                Text = MessageTextBox.Text,
-                SentAt = DateTime.Now
+                TeacherID = senderId,
+                ClientID = receiverId,
+                MessageText = MessageTextBox.Text,
+                SentDate = DateTime.Now
             };
 
             try

@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -24,9 +23,9 @@ namespace LanguageSchool.View
     public partial class EditHomeworkPage : Page
     {
         private readonly HomeworkController _controller = new HomeworkController();
-        private readonly Homework _homework;
+        private readonly Homeworks _homework;
 
-        public EditHomeworkPage(Homework homework)
+        public EditHomeworkPage(Homeworks homework)
         {
             InitializeComponent();
             _homework = homework;
@@ -35,16 +34,15 @@ namespace LanguageSchool.View
 
         private void LoadHomework()
         {
-            TitleBox.Text = _homework.Title;
+            TitleBox.Text = _homework.Description; // если используешь одно поле как "название"
             DescriptionBox.Text = _homework.Description;
-            DueDatePicker.SelectedDate = _homework.DueDate;
+            DueDatePicker.SelectedDate = _homework.Deadline;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _homework.Title = TitleBox.Text;
             _homework.Description = DescriptionBox.Text;
-            _homework.DueDate = DueDatePicker.SelectedDate ?? DateTime.Now.AddDays(7);
+            _homework.Deadline = DueDatePicker.SelectedDate ?? DateTime.Now.AddDays(7);
 
             try
             {

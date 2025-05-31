@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -24,9 +23,9 @@ namespace LanguageSchool.View
     public partial class EditClientPage : Page
     {
         private readonly ClientsController _controller = new ClientsController();
-        private readonly Client _client;
+        private readonly Model.Clients _client;
 
-        public EditClientPage(Client client)
+        public EditClientPage(Model.Clients client)
         {
             InitializeComponent();
             _client = client;
@@ -35,21 +34,21 @@ namespace LanguageSchool.View
 
         private void LoadClientData()
         {
-            FirstNameBox.Text = _client.User.FirstName;
-            LastNameBox.Text = _client.User.LastName;
-            EmailBox.Text = _client.User.Email;
-            PhoneBox.Text = _client.User.Phone;
-            PasswordBox.Password = _client.User.Password;
+            FirstNameBox.Text = _client.Users.FirstName;
+            LastNameBox.Text = _client.Users.LastName;
+            EmailBox.Text = _client.Users.Email;
+            PhoneBox.Text = _client.Users.Phone;
+            PasswordBox.Password = _client.Users.Password;
             InfoBox.Text = _client.AdditionalInfo;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _client.User.FirstName = FirstNameBox.Text;
-            _client.User.LastName = LastNameBox.Text;
-            _client.User.Email = EmailBox.Text;
-            _client.User.Phone = PhoneBox.Text;
-            _client.User.Password = PasswordBox.Password;
+            _client.Users.FirstName = FirstNameBox.Text;
+            _client.Users.LastName = LastNameBox.Text;
+            _client.Users.Email = EmailBox.Text;
+            _client.Users.Phone = PhoneBox.Text;
+            _client.Users.Password = PasswordBox.Password;
             _client.AdditionalInfo = InfoBox.Text;
 
             try

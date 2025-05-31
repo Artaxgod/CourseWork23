@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Model;
 using LanguageSchool.View;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool
 {
@@ -23,7 +22,7 @@ namespace LanguageSchool
     /// </summary>
     public partial class MainWindow : Window
     {
-        private User _user;
+        private Users _user;
 
         public MainWindow()
         {
@@ -31,7 +30,7 @@ namespace LanguageSchool
             //_user = App.Current.Properties.Contains("CurrentUser")
             //? App.Current.Properties["CurrentUser"] as User
             //: null;
-            _user = new User
+            _user = new Users
             {
                 FirstName = "Отладка",
                 RoleID = 1 // Админ
@@ -58,14 +57,12 @@ namespace LanguageSchool
                 GroupsBtn.Visibility = Visibility.Collapsed;
                 ServicesBtn.Visibility = Visibility.Collapsed;
                 ScheduleBtn.Visibility = Visibility.Collapsed;
-                PaymentsBtn.Visibility = Visibility.Collapsed;
             }
             else if (roleId == 3) // Преподаватель
             {
                 ClientsBtn.Visibility = Visibility.Collapsed;
                 TeachersBtn.Visibility = Visibility.Collapsed;
                 ServicesBtn.Visibility = Visibility.Collapsed;
-                PaymentsBtn.Visibility = Visibility.Collapsed;
             }
             // Администратору доступно всё
         }
@@ -89,7 +86,6 @@ namespace LanguageSchool
         private void Homework_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new HomeworkListPage());
         private void Messages_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new MessagesListPage());
         private void Feedback_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new FeedbackListPage());
-        private void Payments_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PaymentsListPage());
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Properties.Remove("CurrentUser");

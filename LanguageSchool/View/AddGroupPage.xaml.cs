@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LanguageSchool.Controllers;
 using LanguageSchool.Model;
-using LanguageSchool.Model.PartialClasses;
 
 namespace LanguageSchool.View
 {
@@ -38,9 +37,9 @@ namespace LanguageSchool.View
                 return;
             }
 
-            Group group = new Group
+            Model.Groups group = new Model.Groups
             {
-                Name = GroupNameBox.Text
+                GroupName = GroupNameBox.Text
             };
 
             try
