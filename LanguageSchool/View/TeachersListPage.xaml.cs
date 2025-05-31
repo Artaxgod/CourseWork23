@@ -22,7 +22,7 @@ namespace LanguageSchool.View
     /// </summary>
     public partial class TeachersListPage : Page
     {
-        private readonly TeachersController _controller = new TeachersController();
+        private readonly LanguageSchoolContext _context = new LanguageSchoolContext();
 
         public TeachersListPage()
         {
@@ -32,8 +32,21 @@ namespace LanguageSchool.View
 
         private void LoadTeachers()
         {
-            List<Teachers> teachers = _controller.GetAllTeachers();
+            var teachers = _context.Teachers.Include("Users").ToList();
             TeachersDataGrid.ItemsSource = teachers;
+        }
+
+        private void EditTeacher_Click(object sender, RoutedEventArgs e)
+        {
+            var teacher = (sender as Button)?.DataContext as Teachers;
+            if (teacher != null)
+            {
+                NavigationService.Navigate(new EditTeacherPage(teacher));
+            }
+        }
+        private void AddTeacher_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddTeacherPage());
         }
     }
 }

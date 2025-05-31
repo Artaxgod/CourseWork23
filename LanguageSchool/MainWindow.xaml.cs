@@ -27,44 +27,16 @@ namespace LanguageSchool
         public MainWindow()
         {
             InitializeComponent();
-            //_user = App.Current.Properties.Contains("CurrentUser")
-            //? App.Current.Properties["CurrentUser"] as User
-            //: null;
-            _user = new Users
+            _user = App.Current.Properties["CurrentUser"] as Users;
+            if (_user == null)
             {
-                FirstName = "Отладка",
-                RoleID = 1 // Админ
-            };
-            //if (_user == null)
-            //{
-            //    MessageBox.Show("Ошибка авторизации. Пожалуйста, войдите снова.");
-            //    new LoginWindow().Show();
-            //    Close();
-            //    return;
-            //}
+                MessageBox.Show("Ошибка авторизации. Пожалуйста, войдите снова.");
+                new LoginWindow().Show();
+                Close();
+                return;
+            }
 
             WelcomeText.Text = $"Добро пожаловать, {_user.FirstName} ({GetRoleName(_user.RoleID)})";
-            ApplyRolePermissions(_user.RoleID);
-        }
-
-        private void ApplyRolePermissions(int roleId)
-        {
-            // Предположим: 1 - Админ, 2 - Клиент, 3 - Преподаватель
-            if (roleId == 2) // Клиент
-            {
-                ClientsBtn.Visibility = Visibility.Collapsed;
-                TeachersBtn.Visibility = Visibility.Collapsed;
-                GroupsBtn.Visibility = Visibility.Collapsed;
-                ServicesBtn.Visibility = Visibility.Collapsed;
-                ScheduleBtn.Visibility = Visibility.Collapsed;
-            }
-            else if (roleId == 3) // Преподаватель
-            {
-                ClientsBtn.Visibility = Visibility.Collapsed;
-                TeachersBtn.Visibility = Visibility.Collapsed;
-                ServicesBtn.Visibility = Visibility.Collapsed;
-            }
-            // Администратору доступно всё
         }
 
         private string GetRoleName(int roleId)
@@ -72,26 +44,59 @@ namespace LanguageSchool
             switch (roleId)
             {
                 case 1: return "Администратор";
-                case 2: return "Клиент";
+                case 2: return "Менеджер";
                 case 3: return "Преподаватель";
+                case 4: return "Клиент";
                 default: return "Пользователь";
             }
         }
 
-        private void Clients_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new ClientsListPage());
-        private void Teachers_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new TeachersListPage());
-        private void Groups_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new GroupsListPage());
-        private void Services_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new ServicesListPage());
-        private void Schedule_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new SchedulesListPage());
-        private void Homework_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new HomeworkListPage());
-        private void Messages_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new MessagesListPage());
-        private void Feedback_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new FeedbackListPage());
+        private void Clients_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ClientsListPage());
+        }
+
+        private void Teachers_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new TeachersListPage());
+        }
+
+        private void Groups_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new GroupsListPage());
+        }
+
+        private void Services_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ServicesListPage());
+        }
+
+        private void Schedule_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new SchedulesListPage());
+        }
+
+        private void Homework_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new HomeworkListPage());
+        }
+
+        private void Messages_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new MessagesListPage());
+        }
+
+        private void Feedback_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new FeedbackListPage());
+        }
+
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Properties.Remove("CurrentUser");
-            LoginWindow login = new LoginWindow();
-            login.Show();
+            new LoginWindow().Show();
             Close();
         }
     }
+
 }

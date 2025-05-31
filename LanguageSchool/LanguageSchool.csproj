@@ -75,6 +75,7 @@
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Model\Core.cs" />
+    <Compile Include="Model\PartialClasses\Attendances.cs" />
     <Compile Include="Model\PartialClasses\Clients.cs" />
     <Compile Include="Model\PartialClasses\Feedbacks.cs" />
     <Compile Include="Model\PartialClasses\Groups.cs" />
@@ -83,6 +84,9 @@
     <Compile Include="Model\PartialClasses\Schedules.cs" />
     <Compile Include="Model\PartialClasses\Services.cs" />
     <Compile Include="Model\PartialClasses\Teachers.cs" />
+    <Compile Include="View\AddClientPage.xaml.cs">
+      <DependentUpon>AddClientPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddFeedbackPage.xaml.cs">
       <DependentUpon>AddFeedbackPage.xaml</DependentUpon>
     </Compile>
@@ -100,6 +104,12 @@
     </Compile>
     <Compile Include="View\AddTeacherPage.xaml.cs">
       <DependentUpon>AddTeacherPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AttendanceListPage.xaml.cs">
+      <DependentUpon>AttendanceListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ClientDashboardWindow.xaml.cs">
+      <DependentUpon>ClientDashboardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClientsListPage.xaml.cs">
       <DependentUpon>ClientsListPage.xaml</DependentUpon>
@@ -137,6 +147,12 @@
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ManagerDashboardWindow.xaml.cs">
+      <DependentUpon>ManagerDashboardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagerReportsPage.xaml.cs">
+      <DependentUpon>ManagerReportsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MessagesListPage.xaml.cs">
       <DependentUpon>MessagesListPage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +164,12 @@
     </Compile>
     <Compile Include="View\ServicesListPage.xaml.cs">
       <DependentUpon>ServicesListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeacherAttendancePage.xaml.cs">
+      <DependentUpon>TeacherAttendancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeacherDashboardWindow.xaml.cs">
+      <DependentUpon>TeacherDashboardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TeachersListPage.xaml.cs">
       <DependentUpon>TeachersListPage.xaml</DependentUpon>
@@ -165,6 +187,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddFeedbackPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +212,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddTeacherPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AttendanceListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ClientDashboardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,6 +271,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ManagerDashboardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagerReportsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MessagesListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,6 +292,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ServicesListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TeacherAttendancePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TeacherDashboardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

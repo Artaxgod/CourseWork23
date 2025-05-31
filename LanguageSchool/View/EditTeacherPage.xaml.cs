@@ -22,44 +22,57 @@ namespace LanguageSchool.View
     /// </summary>
     public partial class EditTeacherPage : Page
     {
-        private readonly TeachersController _controller = new TeachersController();
+        private readonly LanguageSchoolContext _context = new LanguageSchoolContext();
         private readonly Teachers _teacher;
 
         public EditTeacherPage(Teachers teacher)
         {
             InitializeComponent();
-            _teacher = teacher;
-            LoadTeacherData();
-        }
+            _teacher = _context.Teachers.Include("Users").Include("Groups").FirstOrDefault(t => t.TeacherID == teacher.TeacherID);
 
-        private void LoadTeacherData()
-        {
-            FirstNameBox.Text = _teacher.Users.FirstName;
-            LastNameBox.Text = _teacher.Users.LastName;
-            EmailBox.Text = _teacher.Users.Email;
-            PhoneBox.Text = _teacher.Users.Phone;
-            PasswordBox.Password = _teacher.Users.Password;
-            SpecializationBox.Text = _teacher.Specialization;
+            if (_teacher != null && _teacher.Users != null)
+            {
+                FirstNameBox.Text = _teacher.Users.FirstName;
+                LastNameBox.Text = _teacher.Users.LastName;
+                MiddleNameBox.Text = _teacher.Users.MiddleName;
+                EmailBox.Text = _teacher.Users.Email;
+                PhoneBox.Text = _teacher.Users.Phone;
+                BirthDatePicker.SelectedDate = _teacher.Users.DateOfBirth;
+                GenderBox.SelectedItem = _teacher.Users.Gender;
+                SpecializationBox.Text = _teacher.Specialization;
+            }
+
+            GroupsComboBox.ItemsSource = _context.Groups.ToList();
+            // Установка выбранных групп вручную
+            if (_teacher.Groups != null)
+            {
+                foreach (var group in _teacher.Groups)
+                {
+                    GroupsComboBox.SelectedItems.Add(group);
+                }
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             _teacher.Users.FirstName = FirstNameBox.Text;
             _teacher.Users.LastName = LastNameBox.Text;
+            _teacher.Users.MiddleName = MiddleNameBox.Text;
             _teacher.Users.Email = EmailBox.Text;
             _teacher.Users.Phone = PhoneBox.Text;
-            _teacher.Users.Password = PasswordBox.Password;
+            _teacher.Users.DateOfBirth = BirthDatePicker.SelectedDate ?? DateTime.Now;
+            _teacher.Users.Gender = (GenderBox.SelectedItem as ComboBoxItem)?.Content.ToString();
             _teacher.Specialization = SpecializationBox.Text;
 
-            try
+            _teacher.Groups.Clear();
+            foreach (Groups selected in GroupsComboBox.SelectedItems)
             {
-                _controller.UpdateTeacher(_teacher);
-                MessageBox.Show("Информация о преподавателе успешно обновлена.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                _teacher.Groups.Add(selected);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка при обновлении преподавателя: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+
+            _context.SaveChanges();
+            MessageBox.Show("Преподаватель обновлен.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
+
 }

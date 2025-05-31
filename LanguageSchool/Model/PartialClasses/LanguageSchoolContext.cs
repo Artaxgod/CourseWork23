@@ -22,5 +22,6 @@ namespace LanguageSchool.Model
         public virtual DbSet<Homeworks> Homeworks { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Feedbacks> Feedbacks { get; set; }
+        public virtual DbSet<Attendances> Attendances { get; set; }
     }
 }

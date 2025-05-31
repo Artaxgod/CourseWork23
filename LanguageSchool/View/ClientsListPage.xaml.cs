@@ -34,5 +34,19 @@ namespace LanguageSchool.View
             List<Model.Clients> client = _controller.GetAllClients();
             ClientsDataGrid.ItemsSource = client;
         }
+
+        private void AddClient_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddClientPage());
+        }
+
+        private void EditClient_Click(object sender, RoutedEventArgs e)
+        {
+            var client = (sender as Button)?.DataContext as Clients;
+            if (client != null)
+            {
+                NavigationService.Navigate(new EditClientPage(client));
+            }
+        }
     }
 }

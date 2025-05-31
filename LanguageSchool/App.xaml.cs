@@ -19,16 +19,9 @@ namespace LanguageSchool
         {
             base.OnStartup(e);
 
-            // временная авторизация отладки
-            Current.Properties["CurrentUser"] = new Model.Users
-            {
-                FirstName = "Отладка",
-                RoleID = 1
-            };
-
-            var main = new MainWindow();
-            this.MainWindow = main;
-            main.Show();
+            LoginWindow login = new LoginWindow();
+            this.MainWindow = login;
+            login.Show();
         }
     }
 }

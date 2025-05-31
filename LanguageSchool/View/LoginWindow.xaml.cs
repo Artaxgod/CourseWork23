@@ -36,9 +36,27 @@ namespace LanguageSchool.View
             if (user != null)
             {
                 App.Current.Properties["CurrentUser"] = user;
-                MainWindow main = new MainWindow();
-                main.Show();
-                Close();
+
+                switch (user.RoleID)
+                {
+                    case 1: // Администратор
+                        new MainWindow().Show();
+                        break;
+                    case 2: // Менеджер
+                        new ManagerDashboardWindow().Show();
+                        break;
+                    case 3: // Преподаватель
+                        new TeacherDashboardWindow().Show();
+                        break;
+                    case 4: // Клиент
+                        new ClientDashboardWindow().Show();
+                        break;
+                    default:
+                        MessageBox.Show("Неизвестная роль пользователя.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                }
+
+                this.Close();
             }
             else
             {

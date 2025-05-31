@@ -1,0 +1,34 @@
+﻿<Window x:Class="LanguageSchool.View.TeacherDashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LanguageSchool.View"
+        mc:Ignorable="d"
+         Title="Преподаватель" Height="600" Width="1000">
+    <Grid Background="#ecf0f1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левое меню -->
+        <StackPanel Background="#34495e" Grid.Column="0" VerticalAlignment="Stretch">
+            <TextBlock x:Name="WelcomeText"
+                       FontSize="10"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       Margin="10,20,10,30"
+                       Text="Добро пожаловать, преподаватель!"/>
+
+            <Button Content="Мои занятия" Click="Schedule_Click" Margin="10,5" Padding="10" Background="#2ecc71" Foreground="White"/>
+            <Button Content="Домашние задания" Click="Homework_Click" Margin="10,5" Padding="10" Background="#f39c12" Foreground="White"/>
+            <Button Content="Мои студенты" Click="Clients_Click" Margin="10,5" Padding="10" Background="#3498db" Foreground="White"/>
+            <Button Content="Посещения студентов" Click="Attendance_Click" Margin="10,5" Padding="10" Background="#1abc9c" Foreground="White"/>
+            <Button Content="Выход" Click="Logout_Click" Margin="10,5" Padding="10" Background="#e74c3c" Foreground="White"/>
+        </StackPanel>
+
+        <!-- Контент -->
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="10"/>
+    </Grid>
+</Window>
